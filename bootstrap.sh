@@ -32,39 +32,12 @@ else
   echo "$OH_MY_ZSH_DIR exists!, I can not overwrite this automatically."
 fi
 
-
 # Section to set tmux configuration files
-TMUX_DIR=~/.tmux
-TMUX_ORIG_CONF="$TMUX_DIR/tmux.conf"
-TMUX_DST_CONF=~/.tmux.conf
-TMUX_ORIG_SCRIPT="$TMUX_DIR/tmx"
-TMUX_DST_SCRIPT="$LOCAL_BIN/tmx"
-TMUX_REMOTE="http://github.com/juarlex/tmux-conf" 
-
-if [ ! -d "$TMUX_DIR" ]
-then
-
-  echo "Clonning tmux configuration files"
-  git clone $TMUX_REMOTE $TMUX_DIR
-
-  echo "Setting tmux files"
-
-  echo "Linking $TMUX_DST_CONF -> $TMUX_ORIG_CONF"
-  ln -sf $TMUX_ORIG_CONF $TMUX_DST_CONF
-
-  mkdir -p "$LOCAL_BIN"
-
-  echo "Linking $TMUX_DST_SCRIPT -> $TMUX_ORIG_SCRIPT"
-  ln -sf $TMUX_ORIG_SCRIPT $TMUX_DST_SCRIPT
-
-else
-  echo "$TMUX_DIR exists!, I can not overwrite this automatically."
-fi
 
 # Section to install rvm
 RVM_DIR=~/.rvm
 RVM_REMOTE="get.rvm.io"
-RUBY_VERSION="1.9.3-p194"
+RUBY_VERSION="1.9.3-p327"
 
 if [ ! -d "$RVM_DIR" ]
 then
@@ -88,7 +61,6 @@ then
   gem install bundler
   gem install rake
   gem install certified
-  gem install tmuxinator
 
   tmuxinator_output="$(sed -n '/\.tmuxinator\/scripts\/tmuxinator/p' $DOT_ZSHRC)"
   if [ ! -z $tmuxinator_output ]
@@ -120,7 +92,7 @@ else
 fi
 
 VIMRC_AFTER_DST=~/.vimrc.after
-VIMRC_AFTER_REMOTE="https://raw.github.com/juarlex/quick-dotfiles/master/dotvimrc.after"
+VIMRC_AFTER_REMOTE="https://raw.github.com/3zcurdia/oh-my-config/master/dotvimrc.after"
 if [ ! -f "$VIMRC_AFTER_DST" ]
 then
   curl -L $VIMRC_AFTER_REMOTE -o $VIMRC_AFTER_DST
@@ -129,7 +101,7 @@ else
 fi
 
 GITCONFIG_DST=~/.gitconfig
-GITCOFIG_REMOTE="https://raw.github.com/juarlex/quick-dotfiles/master/dotgitconfig"
+GITCOFIG_REMOTE="https://raw.github.com/3zcurdia/oh-my-config/master/dotgitconfig"
 if [ ! -f "$GITCONFIG_DST" ]
 then
   curl -L $GITCONFIG_REMOTE -o $GITCONFIG_DST
