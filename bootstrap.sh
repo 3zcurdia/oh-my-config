@@ -72,34 +72,6 @@ else
   echo "$RVM_DIR exists!, I can not overwrite this automatically."
 fi
 
-# Vim settings
-VIM_DIR=~/.vim
-VIM_REMOTE="http://bit.ly/janus-bootstrap"
-if [ ! -d "$VIM_DIR" ]
-then
-   curl -Lo- $VIM_REMOTE | bash
-else 
-  echo "$VIM_DIR exists!, I can not overwrite this automatically."
-fi
-
-VUNDLE_DIR=~/.vim/bundle/vundle
-VUNDLE_REMOTE="https://github.com/gmarik/vundle.git"
-if [ ! -d "$VUNDLE_DIR" ]
-then
-   git clone $VUNDLE_REMOTE $VUNDLE_DIR
-else
-  echo "$VUNDLE_DIR exists!, I can not overwrite this automatically."
-fi
-
-VIMRC_AFTER_DST=~/.vimrc.after
-VIMRC_AFTER_REMOTE="https://raw.github.com/3zcurdia/oh-my-config/master/dotvimrc.after"
-if [ ! -f "$VIMRC_AFTER_DST" ]
-then
-  curl -L $VIMRC_AFTER_REMOTE -o $VIMRC_AFTER_DST
-else
-  echo "$VIMRC_AFTER_DST exists!, I can not overwrite this automatically."
-fi
-
 GITCONFIG_DST=~/.gitconfig
 GITCOFIG_REMOTE="https://raw.github.com/3zcurdia/oh-my-config/master/dotgitconfig"
 if [ ! -f "$GITCONFIG_DST" ]
@@ -108,9 +80,3 @@ then
 else
   echo "$GITCONFIG_DST exists!, I can not overwrite this automatically."
 fi
-
-# HUB Settings
-HUB_CMD=~/local/bin/hub
-HUB_REMOTE="http://defunkt.io/hub/standalone"
-curl $HUB_REMOTE -sLo $HUB_CMD
-chmod +x $HUB_CMD
