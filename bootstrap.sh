@@ -14,13 +14,13 @@ then
   plugin_output="$(sed -n '/^plugin/p' $DOT_ZSHRC)"
   if [ ! -z $plugin_output ]
   then
-    echo "plugins=(git rails3 textmate ruby bundler lol github gem ssh-agent cap osx mysql-macports macports)" >> $DOT_ZSHRC
+    echo "plugins=(git rails3 textmate ruby bundler lol github gem ssh-agent cap osx)" >> $DOT_ZSHRC
   fi
 
   editor_output="$(sed -n '/^EDITOR/p' $DOT_ZSHRC)"
   if [ ! -z $editor_output ]
   then
-    echo "EDITOR=vim" >> $DOT_ZSHRC
+    echo "EDITOR=subl" >> $DOT_ZSHRC
   fi
 
   if [ -z "$(chsh -s $SHELL)" ]
@@ -37,7 +37,7 @@ fi
 # Section to install rvm
 RVM_DIR=~/.rvm
 RVM_REMOTE="get.rvm.io"
-RUBY_VERSION="1.9.3-p327"
+RUBY_VERSION="2.0.0-p353"
 
 if [ ! -d "$RVM_DIR" ]
 then
@@ -60,13 +60,6 @@ then
   rvm use $RUBY_VERSION --default
   gem install bundler
   gem install rake
-  gem install certified
-
-  tmuxinator_output="$(sed -n '/\.tmuxinator\/scripts\/tmuxinator/p' $DOT_ZSHRC)"
-  if [ ! -z $tmuxinator_output ]
-  then
-    echo '[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator' >> $DOT_ZSHRC
-  fi
 
 else
   echo "$RVM_DIR exists!, I can not overwrite this automatically."
