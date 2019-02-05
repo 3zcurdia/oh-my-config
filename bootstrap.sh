@@ -37,7 +37,7 @@ fi
 # Section to install rvm
 RVM_DIR=~/.rvm
 RVM_REMOTE="get.rvm.io"
-RUBY_VERSION="2.0.0-p353"
+RUBY_VERSION="2.6.1"
 
 if [ ! -d "$RVM_DIR" ]
 then
@@ -51,11 +51,6 @@ then
 
   source "$HOME/.rvm/scripts/rvm"
 
-  rvm --skip-autoreconf pkg install readline
-  rvm --skip-autoreconf pkg install iconv
-  rvm pkg install zlib
-  rvm pkg install openssl
-  rvm pkg install autoconf 
   rvm install $RUBY_VERSION 
   rvm use $RUBY_VERSION --default
   gem install bundler
