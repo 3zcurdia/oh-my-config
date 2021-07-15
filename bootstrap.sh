@@ -14,7 +14,7 @@ then
   plugin_output="$(sed -n '/^plugin/p' $DOT_ZSHRC)"
   if [ ! -z $plugin_output ]
   then
-    echo "plugins=(git rails3 textmate ruby bundler lol github gem ssh-agent cap osx)" >> $DOT_ZSHRC
+    echo "plugins=(git ssh-agent)" >> $DOT_ZSHRC
   fi
 
   editor_output="$(sed -n '/^EDITOR/p' $DOT_ZSHRC)"
@@ -30,34 +30,6 @@ then
 
 else
   echo "$OH_MY_ZSH_DIR exists!, I can not overwrite this automatically."
-fi
-
-# Section to set tmux configuration files
-
-# Section to install rvm
-RVM_DIR=~/.rvm
-RVM_REMOTE="get.rvm.io"
-RUBY_VERSION="2.6.1"
-
-if [ ! -d "$RVM_DIR" ]
-then
-  curl -L $RVM_REMOTE | bash -s stable
-
-  rvm_output="$(sed -n '/rvm\/scripts\/rvm/p' $DOT_ZSHRC)"
-  if [ ! -z $rvm_output ]
-  then
-    echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> $DOT_ZSHRC
-  fi
-
-  source "$HOME/.rvm/scripts/rvm"
-
-  rvm install $RUBY_VERSION 
-  rvm use $RUBY_VERSION --default
-  gem install bundler
-  gem install rake
-
-else
-  echo "$RVM_DIR exists!, I can not overwrite this automatically."
 fi
 
 GITCONFIG_DST=~/.gitconfig
