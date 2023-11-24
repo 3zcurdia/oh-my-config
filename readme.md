@@ -7,7 +7,7 @@ Its a personal script shell based on [quick-dotfiles](https://github.com/juarlex
 Run following command
 
 ```shell
-    curl -Lo - https://raw.github.com/3zcurdia/oh-my-config/master/bootstrap.sh | bash
+curl -Lo - https://raw.github.com/3zcurdia/oh-my-config/main/bootstrap.sh | bash
 ```
 
 ## Contribue to the project
