@@ -4,11 +4,12 @@ LOCAL_BIN="$LOCAL_DIR/bin"
 # Section to install robbyrussell/oh-my-zsh
 OH_MY_ZSH_DIR=~/.oh-my-zsh
 DOT_ZSHRC=~/.zshrc
-OH_MY_ZSH_REMOTE="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 SHELL=`which zsh`
 if [ ! -d "$OH_MY_ZSH_DIR" ]
 then
-  sh -c "$(curl -fsSL $OH_MY_ZSH_REMOTE)"
+
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  
   plugin_output="$(sed -n '/^plugin/p' $DOT_ZSHRC)"
   if [ ! -z $plugin_output ]
   then
