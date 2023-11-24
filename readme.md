@@ -6,7 +6,9 @@ Its a personal script shell based on [quick-dotfiles](https://github.com/juarlex
 
 Run following command
 
-    $ curl -Lo - https://raw.github.com/3zcurdia/oh-my-config/master/bootstrap.sh | bash
+```shell
+    curl -Lo - https://raw.github.com/3zcurdia/oh-my-config/master/bootstrap.sh | bash
+```
 
 ## Contribue to the project
 
@@ -22,7 +24,7 @@ To contribuer Just follow the next stepts:
 
 ## License 
 
-###Copyright (c) 2012 Luis Ezcurdia
+###Copyright (c) 2024 Luis Ezcurdia
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
