@@ -8,7 +8,7 @@ OH_MY_ZSH_REMOTE="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 SHELL=`which zsh`
 if [ ! -d "$OH_MY_ZSH_DIR" ]
 then
-  sh -c (curl -fsSL $OH_MY_ZSH_REMOTE)
+  sh -c "$(curl -fsSL $OH_MY_ZSH_REMOTE)"
   plugin_output="$(sed -n '/^plugin/p' $DOT_ZSHRC)"
   if [ ! -z $plugin_output ]
   then
@@ -18,7 +18,7 @@ then
   editor_output="$(sed -n '/^EDITOR/p' $DOT_ZSHRC)"
   if [ ! -z $editor_output ]
   then
-    echo "EDITOR=subl" >> $DOT_ZSHRC
+    echo "EDITOR=code" >> $DOT_ZSHRC
   fi
 
   if [ -z "$(chsh -s $SHELL)" ]
